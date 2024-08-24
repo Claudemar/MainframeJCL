@@ -1,0 +1,15 @@
+//ALYPNATB JOB (CSA,AEAD),CSA,CLASS=T,MSGCLASS=A,COND=(0,NE)                
+//*UQ ALLOW   
+//******************************************************************
+//**  FTP FILE FROM MAINFRAME TO SERVER (TRACE                    **
+//******************************************************************                                                                  
+//FTP       EXEC PGM=FTP,PARM='(EXIT=8'
+//SYSPRINT  DD SYSOUT=*
+//OUTPUT    DD SYSOUT=*
+//INPUT     DD DDNAME=SYSGET
+//SYSIN    DD   *
+IP_FTP (trace                                                               
+user
+password
+PUT 'dataset_1' TESTEXX.TXT                                              
+QUIT
