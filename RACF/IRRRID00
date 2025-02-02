@@ -1,0 +1,29 @@
+//AACCDCSA JOB (AACS,SCH),CLAUD,CLASS=S,MSGCLASS=A                              
+//*UQ ALLOW                                                                     
+//* -----------------------------------------------------------------           
+//*     List the commands to remove the user before deleting
+//* -----------------------------------------------------------------           
+//STEP1    EXEC PGM=IRRRID00,REGION=25M                                         
+//SYSPRINT DD   SYSOUT=*                                                        
+//SYSOUT   DD   SYSOUT=*                                                        
+//SORTOUT  DD   UNIT=SYSALLDA,SPACE=(CYL,(5,5))                                 
+//SYSUT1   DD   UNIT=SYSALLDA,SPACE=(CYL,(3,5))                                 
+//INDD     DD   DISP=SHR,DSN=AAB.RACF.UNLOAD                                    
+//OUTDD    DD   DSN=AAB.RACF.UNLOAD.IRRRID00,DISP=OLD                           
+//* -----------------------------------------------------------------
+//* Create RACF unload
+//* -----------------------------------------------------------------
+//* OUTDD    DD   DSN=AAB.RACF.UNLOAD.IRRRID00,                                 
+//*        DISP=(NEW,CATLG,DELETE),                                             
+//*        DCB=(DSORG=PS,RECFM=VB,LRECL=259,BLKSIZE=27998),                     
+//*        SPACE=(CYL,(1,1),RLSE)                                               
+//SYSIN    DD   *                                                               
+IBMUSER
+//* -----------------------------------------------------------------
+//*              SYSOUT DATASET UNLOAD
+//* -----------------------------------------------------------------           
+//STEP1    EXEC PGM=ICEGENER                                                    
+//SYSPRINT DD  SYSOUT=A                                                         
+//SYSUT1   DD   DSN=AAB.RACF.UNLOAD.IRRRID00,DISP=OLD                           
+//SYSUT2   DD   SYSOUT=G                                                        
+//SYSIN    DD   DUMMY
