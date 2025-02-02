@@ -1,0 +1,10 @@
+//AACCDCSA JOB (AACS,SCH),CLAUD,CLASS=S,MSGCLASS=A                              
+//*UQ ALLOW                                                                     
+//* -----------------------------------------------------------------           
+//* FUNCTION ALL          
+//* -----------------------------------------------------------------           
+//TSOINPUT   EXEC  PGM=ICHDSM00                                                 
+//SYSPRINT   DD    SYSOUT=*                                                     
+//SYSUT2     DD    SYSOUT=*                                                     
+//SYSIN      DD    *                                                            
+FUNCTION ALL
